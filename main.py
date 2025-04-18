@@ -24,6 +24,7 @@ COMMON_LANGUAGES = {
     'ja': 'Japanese'
 }
 
+# Function to get audio question
 def get_audio_question():
     """Get question from user through microphone"""
     recognizer = sr.Recognizer()
