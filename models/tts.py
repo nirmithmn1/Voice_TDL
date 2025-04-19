@@ -16,7 +16,8 @@ class TextToSpeech:
             'es': 'es',
             'fr': 'fr',
             'de': 'de',
-            'ja': 'co.jp'
+            'ja': 'co.jp',
+            'ur': 'com.pk' 
         }
         self.tld = self.tld_map['en']
         

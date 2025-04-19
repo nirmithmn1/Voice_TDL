@@ -21,7 +21,8 @@ COMMON_LANGUAGES = {
     'es': 'Spanish',
     'fr': 'French',
     'de': 'German',
-    'ja': 'Japanese'
+    'ja': 'Japanese',
+    'ur': 'Urdu'  # Changed from 'ar': 'Arabic'
 }
 
 # Function to get audio question
@@ -89,7 +90,8 @@ def select_language(tts_model, recognizer):
                 'es': "Idioma seleccionado: Español. El sistema ahora hablará en español",
                 'fr': "Langue sélectionnée : Français. Le système parlera maintenant en français",
                 'de': "Ausgewählte Sprache: Deutsch. Das System wird jetzt auf Deutsch sprechen",
-                'ja': "選択された言語：日本語。システムは日本語で話します"
+                'ja': "選択された言語：日本語。システムは日本語で話します",
+                'ur': "منتخب زبان: اردو۔ سسٹم اب اردو میں بات کرے گا"  
             }
             
             # Directly confirm in selected language
@@ -128,7 +130,8 @@ def main():
         'es': "Presione Enter para hacer su pregunta sobre la imagen, o diga salir para terminar",
         'fr': "Appuyez sur Entrée pour poser votre question sur l'image, ou dites quitter pour sortir",
         'de': "Drücken Sie Enter, um Ihre Frage zum Bild zu stellen, oder sagen Sie beenden zum Verlassen",
-        'ja': "画像について質問するにはEnterを押すか、終了するにはquitと言ってください"
+        'ja': "画像について質問するにはEnterを押すか、終了するにはquitと言ってください",
+        'ur': "تصویر کے بارے میں سوال پوچھنے کے لیے Enter دبائیں، یا باہر نکلنے کے لیے quit کہیں"  
     }
 
     # Show welcome message once
@@ -148,12 +151,13 @@ def main():
         language_prompts = {
             'en': f"Answer this specific question about the image: '{question}' based on this caption: '{caption}'. Respond ONLY in English. Be direct and brief.",
             'hi': f"इस छवि के बारे में यह प्रश्न: '{question}' इस विवरण के आधार पर: '{caption}'. केवल हिंदी में एक संक्षिप्त उत्तर दें।",
-            'kn': f"ಈ ಚಿತ್ರದ ಬಗ್ಗೆ ಈ ಪ್ರಶ್ನೆ: '{question}' ಈ ವಿವರಣೆಯ ಆಧಾರದಲ್ಲಿ: '{caption}'. ಕೇವಲ ಕನ್ನಡದಲ್ಲಿ ಸಂಕ್ಷಿಪ್ತ ಉತ್ತರ ನೀಡಿ.",
-            'te': f"ఈ చిత్రంపై ప్రశ్న: '{question}' ఈ వివరణ ఆధారంగా: '{caption}'. తెలుగులో మాత్రమే సంಕ్ಷిप్त సమాధానం ఇవ్వండి.",
+            'kn': f"ಈ ಚಿತ್ರದ ಬಗ್ಗೆ ಈ ಪ್ರಶ್ನೆ: '{question}' ಈ ವಿವರಣೆಯ ಆಧಾರದಲ್ಲಿ: '{caption}'. ಕೇವಲ ಕನ್ನಡದಲ್ಲಿ ಸಂಕ್ಷಿप್त ಉತ್ತರ ನೀಡಿ.",
+            'te': f"ఈ చిత్రంపై ప్రశ్న: '{question}' ఈ వివరణ ఆధారంగా: '{caption}'. తెలుగులో మాత్రమే సంಕ್ಷిप్त సమాధానం ఇవ్వండి.",
             'es': f"Responde esta pregunta sobre la imagen: '{question}' basado en esta descripción: '{caption}'. Responde SOLO en español. Sé breve.",
             'fr': f"Réponds à cette question sur l'image: '{question}' basé sur cette description: '{caption}'. Réponds UNIQUEMENT en français. Sois bref.",
             'de': f"Beantworte diese Frage zum Bild: '{question}' basierend auf dieser Beschreibung: '{caption}'. Antworte NUR auf Deutsch. Sei kurz.",
-            'ja': f"この画像についての質問: '{question}' この説明に基づいて: '{caption}'. 日本語のみで簡潔に答えてください。"
+            'ja': f"この画像についての質問: '{question}' この説明に基づいて: '{caption}'. 日本語のみで簡潔に答えてください。",
+            'ur': f"تصویر کے بارے میں یہ سوال: '{question}' اس تفصیل کی بنیاد پر: '{caption}' صرف اردو میں مختصر جواب دیں۔"
         }
         
         prompt = language_prompts.get(selected_lang, language_prompts['en'])
